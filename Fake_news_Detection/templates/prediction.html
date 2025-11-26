@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Fake News Detection</title>
+    <style>
+      body {
+        /* Set a clean, light off-white background */
+        background-color: #f8f8f8;
+        font-family: 'Poppins', sans-serif;
+      }
+      .header-gradient {
+        /* Deep Teal/Green gradient for the hero area */
+        background-image: linear-gradient(135deg, #10b981 0%, #06b6d4 100%); /* Teal and Cyan/Green */
+      }
+      .card-form {
+        /* Lift the card up over the gradient section */
+        margin-top: -120px;
+      }
+      .check-news-btn {
+        /* Primary button color: Deep Green */
+        background-color: #059669;
+      }
+      .check-news-btn:hover {
+        background-color: #047857;
+      }
+      .result-real {
+        /* Result color (Green for "Real" or just the general positive result color) */
+        background-color: #059669;
+        color: white;
+      }
+      .result-fake {
+        /* Define a color for "Fake" results, e.g., Red */
+        background-color: #ef4444; /* Tailwind red-500 */
+        color: white;
+      }
+      .check-news-link {
+        /* Style for the 'Check News' link button in the header area */
+        background-color: #ffffff;
+        color: #059669; /* Use the primary green for text */
+      }
+      .check-news-link:hover {
+        background-color: #f3f4f6;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="header-gradient text-white pt-5 pb-40">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="flex justify-between items-center mb-16">
+          <span class="text-2xl font-serif font-extrabold">Fake News Detection</span>
+          <nav>
+            <a href="/" class="text-white hover:text-gray-200 mr-6 font-medium">Home</a>
+            <a href="/prediction" class="text-white hover:text-gray-200 font-medium">Prediction</a>
+          </nav>
+        </header>
+
+        <div class="text-center py-8">
+          <h1 class="text-5xl sm:text-6xl font-extrabold mb-4">
+            Detect Fake News Instantly
+          </h1>
+          <p class="text-xl sm:text-2xl font-light mb-10 mx-auto max-w-2xl text-gray-200">
+            Paste any news article below and find out if it's real or fake using **Machine Learning**.
+          </p>
+          <a href="#verification-section" class="inline-block check-news-link py-3 px-8 rounded-lg font-bold shadow-lg transition duration-300">
+            Check News
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 card-form">
+      <div id="verification-section" class="bg-white p-8 sm:p-10 rounded-xl shadow-2xl max-w-3xl mx-auto">
+
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
+          Enter News to Verify
+        </h2>
+
+        <form action="/prediction" method="POST" class="space-y-6">
+          <div class="relative">
+            <label for="news" class="sr-only">Paste your news text here...</label>
+            <textarea class="w-full p-4 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 text-gray-700 placeholder-gray-500"
+                      id="news" name="news" rows="6" placeholder="Paste your news text here..." required></textarea>
+          </div>
+
+          <button type="submit" class="check-news-btn text-white w-full py-3 rounded-lg font-bold text-lg shadow-md hover:shadow-lg transition duration-300">
+            Check News
+          </button>
+        </form>
+
+        <div class="mt-6 text-center">
+            {% if prediction_text %}
+                <div class="result-real w-full py-3 rounded-lg font-bold text-xl shadow-lg">
+                    {{ prediction_text }}
+                </div>
+            {% endif %}
+
+            {% if not prediction_text %}
+                <div class="w-full py-3 rounded-lg font-bold text-xl opacity-0">
+                    &nbsp;
+                </div>
+            {% endif %}
+
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="text-gray-600 body-font mt-16">
+      <div class="container mx-auto py-8 px-5">
+        <p class="text-gray-500 text-sm text-center">
+          © 2025 Fake News Detection — Built with ❤️ using Flask & ML
+        </p>
+      </div>
+    </footer>
+
+  </body>
+</html>
