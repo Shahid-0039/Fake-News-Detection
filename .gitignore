@@ -1,0 +1,23 @@
+.venv/
+.env
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/
+.idea/
+# Ignore local model directory (use Git LFS for large models instead)
+roberta_base/
+Fake_news_Detection/roberta_base/
+
+# Jupyter and Python stuff
+*.ipynb_checkpoints
+
+# VSCode
+.vscode/
+
+# Byte-compiled / distribution
+build/
+dist/
+
+# Logs
+*.log
