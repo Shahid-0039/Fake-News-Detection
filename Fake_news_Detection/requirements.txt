@@ -1,9 +1,7 @@
-```text
 streamlit==1.45.1
-
-torch==2.1.0
-torchvision==0.16.0
-torchaudio==2.1.0
+torch==2.9.0
+torchvision==0.24.0
+torchaudio==2.9.0
 
 transformers==4.38.1
 datasets==2.18.0
@@ -20,4 +18,3 @@ evaluate==0.4.2
 
 tqdm==4.66.1
 protobuf==4.25.3
-```
