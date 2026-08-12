@@ -171,6 +171,6 @@ if st.button("🔍 Detect News", use_container_width=True):
 st.divider()
 
 st.caption(
-    "Powered by RoBERTa • Fake News Detection Project"
+    "Powered by Shahid Ali"
 )
 ```
